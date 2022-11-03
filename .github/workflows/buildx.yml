@@ -17,10 +17,7 @@ name: buildx-experimental
 #
 
 on:
-  push:
-  pull_request:
-  schedule:
-    - cron: '15 6 * * 1'
+  workflow_dispatch:
 
 defaults:
   run:
