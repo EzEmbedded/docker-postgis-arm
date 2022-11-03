@@ -31,15 +31,11 @@ jobs:
       fail-fast: false
       matrix:
         # -3.3 debian for linux/arm64
-        postgres: [11, 12, 13, 14, 15]
+        postgres: [11, 12, 13, 14]
         postgis: ['3.3']
         variant: ['alpine']
         platforms: ['linux/arm64']
-        include:
-          - postgres: 10
-            postgis: '3.2'
-            variant: default
-            platforms: 'linux/arm64'
+ 
 
    
 
@@ -98,6 +94,14 @@ jobs:
 
       - name: "debug: docker images"
         run: docker images
+
+      - name: "debug: docker inspect ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}${{ env.TAG_POSTFIX }}"
+        if: ${{ env.VARIANT == 'default' }}
+        run: docker inspect ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}${{ env.TAG_POSTFIX }}
+
+      - name: "debug: docker inspect ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}-${{ env.VARIANT }}${{ env.TAG_POSTFIX }}"
+        if: ${{ env.VARIANT == 'alpine' }}
+        run: docker inspect ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:${{ env.VERSION }}-${{ env.VARIANT }}${{ env.TAG_POSTFIX }}
 
   
       - name: Login to dockerhub
