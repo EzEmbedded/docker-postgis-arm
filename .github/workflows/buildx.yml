@@ -32,7 +32,7 @@ jobs:
       matrix:
         # -3.3 debian for linux/arm64
         postgres: [12, 13, 14]
-        postgis: ['3.2']
+        postgis: ['3.3']
         variant: ['alpine']
         platforms: ['linux/arm64']
  
