@@ -3,11 +3,7 @@ name: Docker PostGIS CI
 # for building linux/amd64 ( x86-64 ) images !
 
 on:
-  push:
-  pull_request:
-  schedule:
-    - cron: '15 5 * * 1'
-
+  workflow_dispatch:
 defaults:
   run:
     shell: bash
