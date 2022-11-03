@@ -33,7 +33,7 @@ jobs:
         # -3.3 debian for linux/arm64
         postgres: [11, 12, 13, 14, 15]
         postgis: ['3.3']
-        variant: [default]
+        variant: ['alpine']
         platforms: ['linux/arm64']
         include:
           - postgres: 10
