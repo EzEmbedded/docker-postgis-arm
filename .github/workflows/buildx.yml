@@ -102,13 +102,11 @@ jobs:
   
       - name: Login to dockerhub
         uses: docker/login-action@v1
-        if: ${{  (github.ref == 'refs/heads/master') && (github.event_name != 'pull_request')  }}
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_ACCESS_TOKEN }}
 
       - name: Push docker image to dockerhub - ${{ matrix.platforms }}
-        if: ${{  (github.ref == 'refs/heads/master') && (github.event_name != 'pull_request')  }}
         env:
           # platform is important!
           DOCKER_DEFAULT_PLATFORM: ${{ matrix.platforms }}
