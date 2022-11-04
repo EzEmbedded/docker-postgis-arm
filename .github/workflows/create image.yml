@@ -48,7 +48,7 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          platforms: linux/arm64
           context: .
           push: true
           tags: scanlidocker/postgis_14_33_alpine3.16:v1
