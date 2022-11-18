@@ -115,7 +115,7 @@ RUN set -eux \
     \	 
  ##
     ## gzip extension
-    cd /opt/  ;\
+ #   cd /opt/  ;\
  #   git clone --quiet --depth 1 -b $PGSQL_GZIP_TAG $PGSQL_GZIP_REPO  ;\
  #   cd pgsql-gzip  ;\
  #   make  ;\
