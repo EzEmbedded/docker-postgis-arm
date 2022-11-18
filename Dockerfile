@@ -113,7 +113,7 @@ RUN set -eux \
     && make -j$(nproc) \
     && make install \
     \	 
- ##
+   ##
     ## gzip extension
     && mkdir -p /opt \
     && cd /opt/  \
@@ -132,7 +132,15 @@ RUN set -eux \
     && ldconfig  \
     && rm -rf /opt/utf8proc  \
     ##
-
+   ## osml10n extension (originally Mapnik German)
+    && cd /opt/  \
+    && git clone --quiet --depth 1 -b $MAPNIK_GERMAN_L10N_TAG $MAPNIK_GERMAN_L10N_REPO  \
+    && cd mapnik-german-l10n  \
+    && make  \
+    && make install  \
+    && rm -rf /opt/mapnik-german-l10n  \
+    ##    
+    
         			
 																	   
 					 
