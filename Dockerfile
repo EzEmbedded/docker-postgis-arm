@@ -60,12 +60,6 @@ RUN set -eux \
         ca-certificates \
         openssl \
         tar \
-        build-essential \
-        curl \
-        pandoc \
-        libkakasi2-dev \
-        git \
-        libgdal-dev \
     \
     && wget -O postgis.tar.gz "https://github.com/postgis/postgis/archive/${POSTGIS_VERSION}.tar.gz" \
     && echo "${POSTGIS_SHA256} *postgis.tar.gz" | sha256sum -c - \
@@ -98,6 +92,12 @@ RUN set -eux \
         pcre-dev \
         perl \
         protobuf-c-dev \
+        build-essential \
+        curl \
+        pandoc \
+        libkakasi2-dev \
+        git \
+        libgdal-dev \        
     \
 # build PostGIS
     \
