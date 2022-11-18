@@ -112,10 +112,35 @@ RUN set -eux \
         --with-pcredir="$(pcre-config --prefix)" \
     && make -j$(nproc) \
     && make install \
-    \
-	 
-					 
-				
+    \	 
+ ##
+    ## gzip extension
+    cd /opt/  ;\
+    git clone --quiet --depth 1 -b $PGSQL_GZIP_TAG $PGSQL_GZIP_REPO  ;\
+    cd pgsql-gzip  ;\
+    make  ;\
+    make install  ;\
+    rm -rf /opt/pgsql-gzip  ;\
+    ##
+    ## UTF8Proc
+    cd /opt/  ;\
+    git clone --quiet --depth 1 -b $UTF8PROC_TAG $UTF8PROC_REPO  ;\
+    cd utf8proc  ;\
+    make  ;\
+    make install  ;\
+    ldconfig  ;\
+    rm -rf /opt/utf8proc  ;\
+    ##
+    ## osml10n extension (originally Mapnik German)
+    cd /opt/  ;\
+    git clone --quiet --depth 1 -b $MAPNIK_GERMAN_L10N_TAG $MAPNIK_GERMAN_L10N_REPO  ;\
+    cd mapnik-german-l10n  ;\
+    make  ;\
+    make install  ;\
+    rm -rf /opt/mapnik-german-l10n  ;\
+    ##    
+    
+    			
 																	   
 					 
 			
