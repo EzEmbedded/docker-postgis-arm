@@ -62,8 +62,8 @@ RUN set -eux \
         build-base \
         ca-certificates \
 	git \
-	libgdal-dev \
-	libkakasi2-dev \
+	# libgdal-dev \
+	# libkakasi2-dev \
 	# postgresql-server-dev-$PG_MAJOR \
 	# pandoc \
         openssl \
@@ -101,6 +101,7 @@ RUN set -eux \
         pcre-dev \
         perl \
         protobuf-c-dev \
+	libgdal-dev \
     \
 # build PostGIS
     \
