@@ -62,6 +62,9 @@ RUN set -eux \
         build-base \
         ca-certificates \
 	git \
+	libgdal-dev \
+	libkakasi2-dev \
+	postgresql-server-dev-$PG_MAJOR \
 	# pandoc \
         openssl \
         tar \
@@ -94,6 +97,7 @@ RUN set -eux \
         libxml2-dev \
         llvm-dev \
         make \
+	cmake \
         pcre-dev \
         perl \
         protobuf-c-dev \
