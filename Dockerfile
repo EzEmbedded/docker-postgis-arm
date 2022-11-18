@@ -64,7 +64,7 @@ RUN set -eux \
 	git \
 	libgdal-dev \
 	libkakasi2-dev \
-	postgresql-server-dev-$PG_MAJOR \
+	# postgresql-server-dev-$PG_MAJOR \
 	# pandoc \
         openssl \
         tar \
