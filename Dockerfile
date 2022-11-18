@@ -92,10 +92,6 @@ RUN set -eux \
         pcre-dev \
         perl \
         protobuf-c-dev \
-        build-essential \
-        curl \
-        pandoc \
-        libkakasi2-dev \
         git \
         libgdal-dev \        
     \
