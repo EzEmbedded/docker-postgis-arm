@@ -5,17 +5,19 @@ LABEL maintainer="PostGIS Project - https://postgis.net"
 ENV POSTGIS_VERSION 3.3.1
 ENV POSTGIS_SHA256 12298af0ef8804d913d2e8ca726785d1dc1e51b9589ae49f83d2c64472821500
 
-												
-						 
-															 
 
-												
-					   
-														   
 
-																	   
-								   
-																				  
+# https://github.com/pramsey/pgsql-gzip/releases
+ARG PGSQL_GZIP_TAG=v1.0.0
+ARG PGSQL_GZIP_REPO=https://github.com/pramsey/pgsql-gzip.git
+
+# https://github.com/JuliaLang/utf8proc/releases
+ARG UTF8PROC_TAG=v2.5.0
+ARG UTF8PROC_REPO=https://github.com/JuliaLang/utf8proc.git
+
+# osml10n - https://github.com/openmaptiles/mapnik-german-l10n/releases
+ARG MAPNIK_GERMAN_L10N_TAG=v2.5.9.1
+ARG MAPNIK_GERMAN_L10N_REPO=https://github.com/openmaptiles/mapnik-german-l10n.git
 
 
 RUN set -eux \
