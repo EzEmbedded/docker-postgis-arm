@@ -65,7 +65,7 @@ RUN set -eux \
 	# libgdal-dev \
 	# libkakasi2-dev \
 	# postgresql-server-dev-$PG_MAJOR \
-	pandoc=2.19.2-r0 \
+	pandoc-2.19.2-r0 \
         openssl \
         tar \
     \
