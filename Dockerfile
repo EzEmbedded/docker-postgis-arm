@@ -101,7 +101,7 @@ RUN set -eux \
         pcre-dev \
         perl \
         protobuf-c-dev \
-	libgdal-dev \
+	# libgdal-dev \
     \
 # build PostGIS
     \
