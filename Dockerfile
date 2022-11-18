@@ -58,14 +58,14 @@ RUN set -eux \
             exit 1 ; \
         fi \
     \
-    && apk add --no-cache --virtual --allow-untrusted .fetch-deps \
+    && apk add --no-cache --virtual .fetch-deps \
         build-base \
         ca-certificates \
 	git \
 	# libgdal-dev \
 	# libkakasi2-dev \
 	# postgresql-server-dev-$PG_MAJOR \
-	pandoc \
+	pandoc=2.19.2-r0 \
         openssl \
         tar \
     \
