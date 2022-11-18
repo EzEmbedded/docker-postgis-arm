@@ -19,6 +19,9 @@ ARG UTF8PROC_REPO=https://github.com/JuliaLang/utf8proc.git
 ARG MAPNIK_GERMAN_L10N_TAG=v2.5.9.1
 ARG MAPNIK_GERMAN_L10N_REPO=https://github.com/openmaptiles/mapnik-german-l10n.git
 
+RUN apk add -U --no-cache --virtual .fetch-deps \
+        && pandoc \
+     \
 
 RUN set -eux \
     \
@@ -65,7 +68,7 @@ RUN set -eux \
 	# libgdal-dev \
 	# libkakasi2-dev \
 	# postgresql-server-dev-$PG_MAJOR \
-	pandoc \
+	# pandoc \
         openssl \
         tar \
     \
