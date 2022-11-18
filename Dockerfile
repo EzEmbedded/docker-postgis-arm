@@ -19,10 +19,6 @@ ARG UTF8PROC_REPO=https://github.com/JuliaLang/utf8proc.git
 ARG MAPNIK_GERMAN_L10N_TAG=v2.5.9.1
 ARG MAPNIK_GERMAN_L10N_REPO=https://github.com/openmaptiles/mapnik-german-l10n.git
 
-RUN apk add -U --no-cache --virtual .fetch-deps \
-        && pandoc \
-     \
-
 RUN set -eux \
     \
     &&  if   [ $(printf %.1s "$POSTGIS_VERSION") == 3 ]; then \
@@ -137,13 +133,13 @@ RUN set -eux \
     && rm -rf /opt/utf8proc  \
     ##
    ## osml10n extension (originally Mapnik German)
-    && cd /opt/  \
-    && git clone --quiet --depth 1 -b $MAPNIK_GERMAN_L10N_TAG $MAPNIK_GERMAN_L10N_REPO  \
-    && cd mapnik-german-l10n  \
-    && make  \
-    && make install  \
-    && rm -rf /opt/mapnik-german-l10n  \
-    ##    
+  #   && cd /opt/  \
+  #   && git clone --quiet --depth 1 -b $MAPNIK_GERMAN_L10N_TAG $MAPNIK_GERMAN_L10N_REPO  \
+  #   && cd mapnik-german-l10n  \
+  #   && make  \
+  #   && make install  \
+  #   && rm -rf /opt/mapnik-german-l10n  \
+  #   ##    
     
         			
 																	   
