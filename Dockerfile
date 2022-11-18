@@ -5,6 +5,19 @@ LABEL maintainer="PostGIS Project - https://postgis.net"
 ENV POSTGIS_VERSION 3.3.1
 ENV POSTGIS_SHA256 12298af0ef8804d913d2e8ca726785d1dc1e51b9589ae49f83d2c64472821500
 
+# https://github.com/pramsey/pgsql-gzip/releases
+ARG PGSQL_GZIP_TAG=v1.0.0
+ARG PGSQL_GZIP_REPO=https://github.com/pramsey/pgsql-gzip.git
+
+# https://github.com/JuliaLang/utf8proc/releases
+ARG UTF8PROC_TAG=v2.5.0
+ARG UTF8PROC_REPO=https://github.com/JuliaLang/utf8proc.git
+
+# osml10n - https://github.com/openmaptiles/mapnik-german-l10n/releases
+ARG MAPNIK_GERMAN_L10N_TAG=v2.5.9.1
+ARG MAPNIK_GERMAN_L10N_REPO=https://github.com/openmaptiles/mapnik-german-l10n.git
+
+
 RUN set -eux \
     \
     &&  if   [ $(printf %.1s "$POSTGIS_VERSION") == 3 ]; then \
@@ -47,6 +60,12 @@ RUN set -eux \
         ca-certificates \
         openssl \
         tar \
+        build-essential \
+        curl \
+        pandoc \
+        libkakasi2-dev \
+        git \
+        libgdal-dev \
     \
     && wget -O postgis.tar.gz "https://github.com/postgis/postgis/archive/${POSTGIS_VERSION}.tar.gz" \
     && echo "${POSTGIS_SHA256} *postgis.tar.gz" | sha256sum -c - \
@@ -90,6 +109,34 @@ RUN set -eux \
     && make -j$(nproc) \
     && make install \
     \
+   ##
+    ## gzip extension
+    cd /opt/  ;\
+    git clone --quiet --depth 1 -b $PGSQL_GZIP_TAG $PGSQL_GZIP_REPO  ;\
+    cd pgsql-gzip  ;\
+    make  ;\
+    make install  ;\
+    rm -rf /opt/pgsql-gzip  ;\
+    ##
+    ## UTF8Proc
+    cd /opt/  ;\
+    git clone --quiet --depth 1 -b $UTF8PROC_TAG $UTF8PROC_REPO  ;\
+    cd utf8proc  ;\
+    make  ;\
+    make install  ;\
+    ldconfig  ;\
+    rm -rf /opt/utf8proc  ;\
+    ##
+    ## osml10n extension (originally Mapnik German)
+    cd /opt/  ;\
+    git clone --quiet --depth 1 -b $MAPNIK_GERMAN_L10N_TAG $MAPNIK_GERMAN_L10N_REPO  ;\
+    cd mapnik-german-l10n  ;\
+    make  ;\
+    make install  ;\
+    rm -rf /opt/mapnik-german-l10n  ;\
+    ##    
+    
+    
 # buildx platform check for debug.
     && uname -a && uname -m && cat /proc/cpuinfo \
     \
