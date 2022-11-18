@@ -59,7 +59,7 @@ RUN set -eux \
         fi \
     \
     && apk add --no-cache --virtual .fetch-deps \
-        build-essential \
+        build-base \
         ca-certificates \
 	curl \
 	git \
