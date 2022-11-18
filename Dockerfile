@@ -129,7 +129,7 @@ RUN set -eux \
     && cd utf8proc  \
     && make  \
     && make install  \
-    && ldconfig  \
+#    && ldconfig  \
     && rm -rf /opt/utf8proc  \
     ##
    ## osml10n extension (originally Mapnik German)
