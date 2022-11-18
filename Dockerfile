@@ -58,7 +58,7 @@ RUN set -eux \
             exit 1 ; \
         fi \
     \
-    && apk add --no-cache --virtual .fetch-deps \
+    && apk add -U --no-cache --virtual .fetch-deps \
         build-base \
         ca-certificates \
 	git \
