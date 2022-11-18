@@ -62,7 +62,7 @@ RUN set -eux \
         build-base \
         ca-certificates \
 	git \
-	# pandoc \
+	pandoc \
         openssl \
         tar \
     \
